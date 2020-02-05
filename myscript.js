@@ -1,5 +1,5 @@
 //Полезные команды
-typeof(данные); // определить тип данных
+typeof (данные); // определить тип данных
 //в начале документа скрипта задаем строгую типизацию по стандарту es6, лучше всегда так делать чтобы избежать ошибок
 'use strict';
 
@@ -32,7 +32,7 @@ console.log(man.name);
 console.log(man["name"]);
 
 //Массив также как в php
-var arr = ['picture.jpg','apple.png', 'orange.jpg'];
+var arr = ['picture.jpg', 'apple.png', 'orange.jpg'];
 //доступ к  значениям массива также как в php
 console.log(arr[1]);
 
@@ -124,3 +124,57 @@ git reset --hard d8578edf8458ce06fbc5bb76a58c5ca4a58c5ca4
 /* Для удобного наглядного просмотра изменений использовать сторонний сервис gitkraken */
 
 
+//Условные конструкции if else 
+let num = 1;
+if (num > 5) {
+  console.log("Больше");
+}
+else if (num < 100 && num > 0) {
+  console.log("Меньше");
+}
+else {
+  console.log("Число вне диапазона");
+}
+
+// Конструкция switch case break default 
+let n = -1;
+switch (true) {
+  case n > 0 && n < 50:
+    console.log("больше 0 и меньше 50");
+    break;
+  case n < 100 && n > 50:
+    console.log("меньше 100 и больше 50");
+    break;
+  case 50:
+    console.log("Верно это" + n);
+    break;
+  default:
+    console.log("число вне диапазона");
+}
+
+//Циклы while, do while, for  и continue break
+let nus = 5;
+while (nus < 10){
+  nus++;
+  console.log(nus);
+} 
+ let nuc = 5;
+while (nuc < 10){
+  nuc++;
+  console.log(nuc);
+  if (nuc ==8){
+    break;
+  }
+} 
+
+let nur = 5;
+do {
+  nur++;
+console.log(nur);}
+while (nur < 15);
+
+for (i = 1; i < 20; i++) {
+  if (i==5){continue;};
+  if (i==10){break};
+  console.log(i);
+}
