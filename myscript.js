@@ -170,7 +170,7 @@ while (nuc < 10){
 let nur = 5;
 do {
   nur++;
-console.log(nur);}
+console.log(nur)}
 while (nur < 15);
 
 for (i = 1; i < 20; i++) {
