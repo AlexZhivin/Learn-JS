@@ -92,15 +92,16 @@ function checkSaving() {
   alert(' Доход в месяц с вашего депозита: ' + appData.monthIncome);
 }
 checkSaving();
-
 function optionalExpenses() {
-  for (let j = 0; j < 3; j++) {
-    let a = prompt("Введите необязательную статью расходов в этом месяце ", '');
-    if ((typeof (a)) === 'string' && (typeof (a)) != null
-     && a != '' && a.length < 50) {
+  let j=0, k=0;
+  while (j<3) {
+    j++;
+    k++;
+    let g = prompt("Введите необязательную статью расходов в этом месяце ", '');
+    if ((typeof (g)) === 'string' && (typeof (g)) != null
+     && g != '' && g.length < 50) {
       console.log('Done');
-      let r = 0;
-      appData.optionalExpenses[r++] = a;
+      appData.optionalExpenses[k] = g;
     }
      else {
       j = j - 1;
