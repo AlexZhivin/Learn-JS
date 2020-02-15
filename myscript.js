@@ -273,6 +273,33 @@ for (let key of arr) {
   console.log(key); // получили значения ключей массива
 }
 
+// Удалить элемент массива по значению и записать на его метсо новый. Ищет заднное знаение в массиве, возвращает его индекс, затем удаляет его из массива и записывает на его место другое значение
+var arr = ["Привет", "тебе", "Миша"];
+/* arr.splice(1, 1); // начиная с позиции 1, удалить 1 элемент
+console.log( arr ); //  осталось ["Привет", "Миша"] */
+
+function delElement(searchElem, addElement){
+let searchIndex = arr.indexOf(searchElem);
+arr.splice(searchIndex, 1, addElement);
+}
+
+delElement('Миша', 'радость моя');
+console.log(arr);
+
+let joined = arr.join(', '); // собирает строку из массива с заданным разделителем
+console.log(joined);
+
+let exString = "Ехал  Грека 21 через реку видит Грека в реке, рак сунул Грека руку в реку рак за руку Греку";
+let splited = exString.split(" "); // разбивает строку на элементы массива по разделителю (если поставить только кавычки строка разобъется по буквам слов)
+console.log(splited);
+
+
+
+
+
+
+
+
 // тренировка
 let users = {
   user: {
@@ -302,7 +329,7 @@ function delUser(name1) {
   }
 }
 
-delUser('Alex'); 
+delUser('Alex');
 showUsers();
 
 // Ассоциативные массивы, как таковые отсутсвуют. но их можно создать спомощью объектов типа Map, Map это тип данных специально предназначенный для 
@@ -313,7 +340,7 @@ let aray = new Map([
   ['key2', 'value2'],
   ['key3', ['value3']]
 ]);
- // методы для работы с ассоц массивами - объектами
+// методы для работы с ассоц массивами - объектами
 aray.size; // кол-во элементов в массиве
 aray.set('key4', 'value4'); // добавить пару
 aray.get('key2'); // получить значение по ключу
@@ -329,29 +356,63 @@ let aray = new Map([
   ['key2', 'value2'],
   ['key3', ['value3']]
 ]);
-aray.forEach(function(value, key){
-  console.log( value + '' + key);
+aray.forEach(function (value, key) {
+  console.log(value + '' + key);
 })
 // Также как ассоциативный массив можно считать объект создаваемый = {};
 
 let Arr = {  // по правилам нотации название объектов пишут с большой буквы
-  key : 'value',
-  key2 : 'value2',
-  key3 : 'value3'
+  key: 'value',
+  key2: 'value2',
+  key3: 'value3'
 }
 //Пример создания объекта ООП и использования prototype
-function Arr(){
+function Arr() {
   this.key = "value1";
   this.key2 = 'value2';
   this.key3 = 'value4';
-  this.show = function(){
+  this.show = function () {
     console.log(this.key3);
   };
 }
-Arr.prototype.sum = function(){
-    console.log(this.key + ' ' + this.key2);
-  }
+Arr.prototype.sum = function () {
+  console.log(this.key + ' ' + this.key2);
+}
 
 let newArr = new Arr();
 newArr.sum();
 newArr.show();
+
+// функция выводит из объекта по id значение 
+let shop = {
+  1: 'orange',
+  2: 'limon',
+  3: 'aple',
+  4: 'strawberry'
+}
+function showId(id) {
+  console.log(shop[id]);
+}
+showId(2);
+/************************************************************************ */
+
+
+let myArr = ['orange', 'apple', 'strawberry', 'grandberry'];
+function searchArr(id) {
+  for (let i = 0; i < myArr.length; i++) {
+    if (id == myArr[i]) {
+      return console.log(myArr[i]);
+    }
+    else { console.log('Искомое значение' + ' ' + id + ' ' + 'не найдено'); return; }
+  }
+} 
+ searchArr('orange');
+
+function showArr(){
+  for (let i in myArr){
+    console.log(myArr[i]);
+  }
+}
+showArr();
+
+
