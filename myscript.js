@@ -251,12 +251,20 @@ console.log(Object.keys(options).length); // методом .length получи
 
 /* Массивы  */
 
-let arr = [1, 2, 3, 4];
+let arr = [1, 10, 3, 2];
 arr.push("text"); // Добавляет в конец массива элемент
 arr.pop(); // Удаляет один последний элемент из массива  
 arr.unshift('Text'); // Добавляет элемент в начало массива
 arr.shift(); //Удаляет первый элемент массива
-console.log(arr);
+arr.sort(); // сортирует элем массива графологически т.е. как строки.
+//Сортировка массива с дополнительной функцией, которая позволяет сортировать цифры как цифры а не как строки (по умолчанию в методе sort())
+function compareNumeric(a, b) {
+return a-b;
+}
+console.log(arr.sort(compareNumeric));
+
+
+
 // перебор массовов метод №1
 for (let i = 0; i < arr.length; i++) {  // на заметку метод .length возвращает номер последнего элемента + 1
   console.log(arr[i]);
@@ -265,6 +273,8 @@ for (let i = 0; i < arr.length; i++) {  // на заметку метод .lengt
 arr.forEach(function (item, i, mass) {
   console.log(i + ' ' + "содержит запись" + ' ' + item + ' ' + "в массиве:" + ' ' + mass);
 })
+//Чтобы перебор массивов начался не с 0 индекса пример:
+arr.forEach(function (item, i) { alert('Сообщение :' + ' ' + (i + 1) + ' ' + item) })
 //Перебор массивов метод №3  - не работает в объектах
 for (let key in arr) {
   console.log(key); // получили ключи массива
@@ -283,7 +293,7 @@ let searchIndex = arr.indexOf(searchElem);
 arr.splice(searchIndex, 1, addElement);
 }
 
-delElement('Миша', 'радость моя');
+delElement('Миша', 'ты жжешь!');
 console.log(arr);
 
 let joined = arr.join(', '); // собирает строку из массива с заданным разделителем
@@ -292,11 +302,6 @@ console.log(joined);
 let exString = "Ехал  Грека 21 через реку видит Грека в реке, рак сунул Грека руку в реку рак за руку Греку";
 let splited = exString.split(" "); // разбивает строку на элементы массива по разделителю (если поставить только кавычки строка разобъется по буквам слов)
 console.log(splited);
-
-
-
-
-
 
 
 
@@ -396,17 +401,18 @@ function showId(id) {
 showId(2);
 /************************************************************************ */
 
-
+//функция проверяет наличие значения в массиве
 let myArr = ['orange', 'apple', 'strawberry', 'grandberry'];
+console.log(myArr.sort());
 function searchArr(id) {
-  for (let i = 0; i < myArr.length; i++) {
-    if (id == myArr[i]) {
-      return console.log(myArr[i]);
+    if (myArr.indexOf(id)==true) {
+      let complite = myArr.indexOf(id);
+      return console.log(myArr[complite]);
     }
-    else { console.log('Искомое значение' + ' ' + id + ' ' + 'не найдено'); return; }
+    else { console.log('Искомое значение' + ' ' + id + ' ' + 'не найдено'); }
   }
-} 
- searchArr('orange');
+
+ searchArr('apple');
 
 function showArr(){
   for (let i in myArr){
@@ -415,4 +421,17 @@ function showArr(){
 }
 showArr();
 
+// ООП
 
+let soldier = {    //Объект родитель
+  health: 100,
+  armor: 500
+};
+
+let jhon ={  //Объект наследник. Имеет все свойства родителя
+  health:120
+};
+
+jhon.__proto__ =soldier; // Указываем что объект jhon является наследником (прототипом) soldier
+
+console.log(jhon.armor);  //Обращение к родительскому  свойству
