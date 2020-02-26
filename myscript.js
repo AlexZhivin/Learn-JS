@@ -259,7 +259,7 @@ arr.shift(); //Удаляет первый элемент массива
 arr.sort(); // сортирует элем массива графологически т.е. как строки.
 //Сортировка массива с дополнительной функцией, которая позволяет сортировать цифры как цифры а не как строки (по умолчанию в методе sort())
 function compareNumeric(a, b) {
-return a-b;
+  return a - b;
 }
 console.log(arr.sort(compareNumeric));
 
@@ -288,9 +288,9 @@ var arr = ["Привет", "тебе", "Миша"];
 /* arr.splice(1, 1); // начиная с позиции 1, удалить 1 элемент
 console.log( arr ); //  осталось ["Привет", "Миша"] */
 
-function delElement(searchElem, addElement){
-let searchIndex = arr.indexOf(searchElem);
-arr.splice(searchIndex, 1, addElement);
+function delElement(searchElem, addElement) {
+  let searchIndex = arr.indexOf(searchElem);
+  arr.splice(searchIndex, 1, addElement);
 }
 
 delElement('Миша', 'ты жжешь!');
@@ -328,7 +328,7 @@ function delUser(name1) {
   for (key in users) {
     for (key2 in users[key]) {
       if (users[key][key2] == name1) {
-        return delete users.user;
+        return delete users[key];
       }
     }
   }
@@ -403,19 +403,20 @@ showId(2);
 
 //функция проверяет наличие значения в массиве
 let myArr = ['orange', 'apple', 'strawberry', 'grandberry'];
-console.log(myArr.sort());
+//console.log(myArr.indexOf('grandberry'));
+//console.log(myArr.sort());
 function searchArr(id) {
-    if (myArr.indexOf(id)==true) {
-      let complite = myArr.indexOf(id);
-      return console.log(myArr[complite]);
-    }
-    else { console.log('Искомое значение' + ' ' + id + ' ' + 'не найдено'); }
+  if (myArr.indexOf(id) !== -1) {
+    let complite = myArr.indexOf(id);
+    return console.log(myArr[complite]);
   }
+  else { console.log('Искомое значение' + ' ' + id + ' ' + 'не найдено'); }
+}
 
- searchArr('apple');
+searchArr('strawberry');
 
-function showArr(){
-  for (let i in myArr){
+function showArr() {
+  for (let i in myArr) {
     console.log(myArr[i]);
   }
 }
@@ -428,10 +429,10 @@ let soldier = {    //Объект родитель
   armor: 500
 };
 
-let jhon ={  //Объект наследник. Имеет все свойства родителя
-  health:120
+let jhon = {  //Объект наследник. Имеет все свойства родителя
+  health: 120
 };
 
-jhon.__proto__ =soldier; // Указываем что объект jhon является наследником (прототипом) soldier
+jhon.__proto__ = soldier; // Указываем что объект jhon является наследником (прототипом) soldier
 
 console.log(jhon.armor);  //Обращение к родительскому  свойству
