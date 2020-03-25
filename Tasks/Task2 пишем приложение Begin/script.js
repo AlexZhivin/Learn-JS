@@ -84,7 +84,7 @@ let appData = {
       }
       else { i = i - 1; }
     }
-    appData.income.forEach(function (item, i) { alert('Способы доп. заработка:' + ' ' + (i + 1) + ' ' + item) })
+    appData.income.forEach(function (item, i) { alert('Способы доп. заработка:' + ' ' + (i + 1) + ' ' + item) }) // (i+1) цикл будет выводить элементы начиная с индекса 1
 
   },
   showAllobj:function(){
